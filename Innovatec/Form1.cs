@@ -23,5 +23,16 @@ namespace Innovatec
             FrmArbol ventana = new FrmArbol();
             ventana.Show();
         }
+
+        private void grafoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGrafo ventana = new FrmGrafo();
+            ventana.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

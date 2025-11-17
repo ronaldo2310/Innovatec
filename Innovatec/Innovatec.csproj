@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Estructura\ArbolEtruc.cs" />
+    <Compile Include="Estructura\GrafoEstruc.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,12 @@
     </Compile>
     <Compile Include="Vista\FrmArbol.Designer.cs">
       <DependentUpon>FrmArbol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\FrmGrafo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vista\FrmGrafo.Designer.cs">
+      <DependentUpon>FrmGrafo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -75,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="Vista\FrmArbol.resx">
       <DependentUpon>FrmArbol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vista\FrmGrafo.resx">
+      <DependentUpon>FrmGrafo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

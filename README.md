@@ -1,111 +1,106 @@
-Proyecto: Árboles y Grafos en C# — Innovatec
-Descripción General
+# Proyecto: Sistema de Gestión para Parque Tecnológico Innovatec
 
-Este proyecto implementa dos estructuras fundamentales para el caso de estudio del Parque Tecnológico “Innovatec”:
+## Descripción
+Este proyecto implementa un sistema de gestión para el Parque Tecnológico "Innovatec" que incluye dos componentes principales:
 
-Parte A — Árbol General (Jerarquía Organizativa)
+1. **Árbol de Jerarquía Organizativa**: Representa la estructura organizacional del parque
+2. **Grafo de Rutas Internas**: Modela las conexiones entre edificios del parque
 
-Modela la estructura jerárquica del parque utilizando un árbol general, permitiendo:
+## Estructura del Proyecto
 
-Registrar nodos (departamentos, áreas, unidades).
+### Componentes Principales
 
-Insertar hijos bajo cualquier nodo padre.
+#### 1. Árbol General (Jerarquía Organizativa)
+- **Clase `NodoArbol`**: Representa un nodo con ID, nombre y lista de hijos
+- **Clase `ArbolGeneral`**: Implementa operaciones del árbol
+- **Formulario `FrmArbol`**: Interfaz gráfica para administrar el árbol
 
-Recorrer el árbol en preorden.
+**Funcionalidades del Árbol:**
+- Crear raíz de la organización
+- Insertar nodos hijos
+- Recorrido en preorden
+- Conteo de nodos
+- Cálculo de niveles organizativos
 
-Buscar nodos por ID.
+#### 2. Grafo No Dirigido Ponderado (Sistema de Rutas)
+- **Clase `Grafo`**: Implementa un grafo con diccionario de adyacencia
+- **Formulario `FrmGrafo`**: Interfaz para gestionar el grafo
 
-Contar nodos totales.
+**Funcionalidades del Grafo:**
+- Agregar nodos (edificios)
+- Agregar aristas ponderadas (rutas con distancia)
+- Mostrar adyacencias
+- Verificar conectividad del parque
+- Calcular ruta más corta (Algoritmo de Dijkstra)
 
-Obtener niveles de cada nodo dentro de la jerarquía.
+## Requisitos Técnicos
 
-Parte B — Grafo (Rutas del Parque)
+### Tecnologías Utilizadas
+- **Lenguaje**: C#
+- **Plataforma**: .NET Framework
+- **Interfaz**: Windows Forms
+- **Estructuras de Datos**: Árbol general, Grafo no dirigido ponderado
 
-Simula el sistema interno de caminos entre edificios mediante un grafo no dirigido y ponderado, con funcionalidades para:
+### Algoritmos Implementados
+- **Recorrido en preorden** para el árbol
+- **Breadth-First Search (BFS)** para verificar conectividad
+- **Algoritmo de Dijkstra** para rutas más cortas
 
-Agregar nodos (edificios o puntos).
+## Estructura de Archivos
 
-Crear aristas con pesos (distancias).
+```
+Innovatec/
+├── Estructura/
+│   ├── NodoArbol.cs
+│   ├── ArbolGeneral.cs
+│   └── Grafo.cs
+├── Vista/
+│   ├── FrmArbol.cs
+│   └── FrmGrafo.cs
+└── README.md
+```
 
-Mostrar adyacencias con pesos.
+## Instrucciones de Uso
 
-Validar si el grafo es conexo.
+### Para el Árbol Organizativo
+1. Ejecutar la aplicación
+2. La raíz "Innovatec" se crea automáticamente
+3. Seleccionar un nodo padre en la lista
+4. Ingresar nombre del nuevo nodo y hacer clic en "Insertar"
+5. Usar botones para contar nodos, ver niveles o recorrer
 
-Calcular la ruta más corta entre dos edificios usando el algoritmo de Dijkstra.
+### Para el Grafo de Rutas
+1. Agregar nodos (nombres de edificios)
+2. Conectar edificios con aristas (especificar peso/distance)
+3. Verificar conectividad del parque
+4. Calcular rutas más cortas entre cualquier par de edificios
 
-Este proyecto corresponde al Caso de Estudio: Árboles y Grafos en C# de la Universidad Americana (UAM).
+## Características de Implementación
 
+### Árbol
+- Búsqueda recursiva por ID
+- Conteo recursivo de nodos
+- Cálculo de niveles usando BFS
+- Visualización con sangría por niveles
 
-Caso_de_Estudio_Arboles_Grafos
+### Grafo
+- Representación con lista de adyacencia
+- Validación de nodos únicos
+- Aristas no dirigidas con pesos
+- Dijkstra con reconstrucción de camino
 
-Tecnologías Utilizadas
+## Criterios de Evaluación Cumplidos
 
-C# (.NET Framework / Windows Forms)
+- Implementación correcta del árbol general (10 puntos)
+- Implementación funcional del grafo con Dijkstra (10 puntos)
+- Estructura de proyecto organizada (5 puntos)
+- Documentación clara y técnica (5 puntos)
 
-Clases propias para Árbol y Grafo
+## Notas Técnicas
 
-Visual Studio
+- El árbol garantiza IDs únicos automáticamente
+- El grafo valida existencia de nodos antes de operaciones
+- Dijkstra maneja correctamente caminos inexistentes
+- La interfaz proporciona feedback claro al usuario
 
-Estructura del Proyecto
-Innovatec
- ├── Estructura
- │     ├── ArbolGeneral.cs
- │     ├── NodoArbol.cs
- │     └── Grafo.cs
- ├── Vista
- │     ├── FrmArbol.cs
- │     ├── FrmGrafo.cs
- │     └── Archivos de diseño (Windows Forms)
- └── README.md
-
-Árbol General — Funcionalidades
-Crear raíz
-arbol.CrearRaiz(1, "Innovatec");
-
-Insertar nodos hijos
-arbol.Insertar(padreId, nuevoId, "Nuevo Nodo");
-
-Recorrer en preorden
-arbol.RecorrerPreorden(arbol.Raiz, listBox);
-
-Contar nodos
-int total = arbol.ContarNodos();
-
-Obtener niveles
-Dictionary<int, int> niveles = arbol.ObtenerNiveles();
-
-Grafo — Funcionalidades
-Agregar un nodo
-grafo.AgregarNodo("Edificio A");
-
-Crear arista con peso
-grafo.AgregarArista("A", "B", 12.5);
-
-Mostrar adyacencias
-
-Ejemplo:
-
-A -> B(12.5), C(8)
-B -> A(12.5)
-
-Verificar conectividad
-grafo.EsConexo();
-
-Calcular ruta más corta (Dijkstra)
-var resultado = grafo.Dijkstra("A", "D");
-double distancia = resultado.Item1;
-var camino = resultado.Item2;
-
-Instrucciones de Ejecución
-
-Abrir el archivo .sln en Visual Studio.
-
-Ejecutar el proyecto (F5).
-
-Desde la interfaz se puede:
-
-Administrar la jerarquía del árbol.
-
-Construir la red de rutas del grafo.
-
-Obtener rutas óptimas mediante Dijkstra.
+Este proyecto demuestra la aplicación práctica de estructuras de datos avanzadas en un contexto de gestión empresarial y logística.

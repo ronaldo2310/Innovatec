@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Innovatec.Vista;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Innovatec
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void arbolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArbol ventana = new FrmArbol();
+            ventana.Show();
         }
     }
 }
